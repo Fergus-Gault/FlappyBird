@@ -10,10 +10,14 @@ Pipe::Pipe(float width)
 Pipe::~Pipe() {}
 
 void Pipe::generateRandomPipe(float width) {
-	m_upperRect.setSize(sf::Vector2f(width, randomOffset()));
-	m_lowerRect.setSize(sf::Vector2f(width, game.getWindow().getSize().y - (m_upperRect.getSize().y + m_gap)));
 
-	m_upperRect.setPosition(sf::Vector2f(game.getWindow().getSize().x, 0.f));
+	float windowSizeX{ static_cast<float>(game.getWindow().getSize().x) };
+	float windowSizeY{ static_cast<float>(game.getWindow().getSize().y) };
+
+	m_upperRect.setSize(sf::Vector2f(width, randomOffset()));
+	m_lowerRect.setSize(sf::Vector2f(width, windowSizeY - (m_upperRect.getSize().y + m_gap)));
+
+	m_upperRect.setPosition(sf::Vector2f(windowSizeX, 0.f));
 	m_lowerRect.setPosition(sf::Vector2f(m_upperRect.getPosition().x, m_upperRect.getSize().y + m_gap));
 }
 
