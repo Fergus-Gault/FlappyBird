@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
 #include "Pipe.h"
+#include <vector>
 
 class FlappyBird {
 public:
@@ -17,9 +18,12 @@ public:
 
 	sf::RenderWindow& getWindow() { return m_window; }
 
+	Player& getPlayer() { return m_player; }
+
 private:
 	sf::RenderWindow m_window{};
 	Player m_player{ 20.f };
+	std::vector<Pipe> m_pipes{};
 	Pipe m_pipe{ 40.f, 300.f };
 };
 

@@ -21,6 +21,7 @@ public:
 	void setPos(sf::Vector2f pos) { m_rect.setPosition(pos); }
 
 	bool checkBounds();
+	bool checkCollision();
 
 private:
 	sf::RectangleShape m_rect{};

@@ -16,8 +16,14 @@ public:
 
 	void setPos(sf::Vector2f pos) { m_rect.setPosition(pos); }
 
+	bool checkIfOnLeft();
+	bool checkCollision();
+
+	float randomOffset();
+
 private:
 	sf::RectangleShape m_rect;
 	sf::Vector2f m_velocity{-100.f, 0.f};
+	float m_offset{};
 
 };
