@@ -1,6 +1,5 @@
 #include "Player.h"
 #include "FlappyBird.h"
-#include <iostream>
 
 // Create a rectangle with the specified radius
 Player::Player(float radius) : m_rect(sf::Vector2f(radius, radius)) {
@@ -23,13 +22,12 @@ void Player::render() {
 }
 
 
-
-
 void Player::update(sf::Time& deltaTime) {
 	if (checkBounds()) {
-		setVelocity(sf::Vector2f(0.f, 0.f)); // Stop vertical movement
-		std::cout << "Out of bounds\n";
+		game.stopGame();
 	}
+
+	game.getScoreText().update(getScore()); // Update score
 
 	setVelocity(sf::Vector2f(0.f, getVelocity().y + getGravity().y)); // Set the new velocity to velocity+gravity
 

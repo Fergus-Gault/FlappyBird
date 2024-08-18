@@ -21,10 +21,14 @@ public:
 	void setPos(sf::Vector2f pos) { m_rect.setPosition(pos); }
 
 	bool checkBounds();
-	bool checkCollision();
+
+
+	void setScore(int score) { m_score = score; }
+	int getScore() { return m_score; }
 
 private:
 	sf::RectangleShape m_rect{};
-	sf::Vector2f m_gravity{0.f, .5f};
+	sf::Vector2f m_gravity{0.f, 1.f};
 	sf::Vector2f m_velocity{};
+	int m_score{};
 };

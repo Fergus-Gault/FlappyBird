@@ -21,7 +21,7 @@ set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE 
 find_package(SFML CONFIG REQUIRED COMPONENTS system window graphics network)
 
 # Add source to this project's executable.
-add_executable (FlappyBird "src/FlappyBird.cpp" "include/FlappyBird.h" "src/Player.cpp" "include/Player.h" "include/Pipe.h" "src/Pipe.cpp")
+add_executable (FlappyBird "src/FlappyBird.cpp" "include/FlappyBird.h" "src/Player.cpp" "include/Player.h" "include/Pipe.h" "src/Pipe.cpp" "src/Text.cpp" "include/Text.h")
 
 
 # Link libraries

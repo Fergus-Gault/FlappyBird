@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
 #include "Pipe.h"
+#include "Text.h"
 #include <vector>
 
 class FlappyBird {
@@ -20,11 +21,20 @@ public:
 
 	Player& getPlayer() { return m_player; }
 
+	void generatePipes();
+
+	void stopGame();
+
+	void setupFont();
+
+	Text& getScoreText() { return m_score; }
+
 private:
 	sf::RenderWindow m_window{};
 	Player m_player{ 20.f };
 	std::vector<Pipe> m_pipes{};
-	Pipe m_pipe{ 40.f, 300.f };
+	Text m_score{};
+	sf::Font m_font;
 };
 
 extern FlappyBird game; // Declare external game
