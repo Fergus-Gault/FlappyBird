@@ -1,10 +1,6 @@
 #include "Text.h"
 #include "FlappyBird.h"
 
-Text::Text() {}
-
-Text::~Text() {}
-
 void Text::setFont(const sf::Font& font) {
     m_text.setFont(font);
 }

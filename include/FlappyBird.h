@@ -9,7 +9,7 @@
 class FlappyBird {
 public:
 	FlappyBird();
-	~FlappyBird();
+	~FlappyBird() = default;
 
 	void processEvents();
 	void update(sf::Time deltaTime);
@@ -28,6 +28,9 @@ public:
 	void setupFont();
 
 	Text& getScoreText() { return m_score; }
+
+	float getWindowX() { return static_cast<float>(m_window.getSize().x); }
+	float getWindowY() { return static_cast<float>(m_window.getSize().y); }
 
 private:
 	sf::RenderWindow m_window{};

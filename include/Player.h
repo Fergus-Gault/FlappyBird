@@ -5,18 +5,18 @@
 class Player {
 public:
 	Player(float radius);
-	~Player();
+	~Player() = default;
 
 	void update(sf::Time& deltaTime);
 	void render();
 
 	void setGravity(sf::Vector2f& gravity) { m_gravity = gravity; }
-	sf::Vector2f getGravity() { return m_gravity; }
+	sf::Vector2f& getGravity() { return m_gravity; }
 
 	void setVelocity(sf::Vector2f velocity) { m_velocity = velocity; }
-	sf::Vector2f getVelocity() { return m_velocity; }
+	sf::Vector2f& getVelocity() { return m_velocity; }
 
-	sf::RectangleShape getRect() { return m_rect; }
+	sf::RectangleShape& getRect() { return m_rect; }
 
 	void setPos(sf::Vector2f pos) { m_rect.setPosition(pos); }
 

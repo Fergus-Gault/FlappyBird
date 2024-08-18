@@ -4,16 +4,16 @@
 class Pipe {
 public:
 	Pipe(float width);
-	~Pipe();
+	~Pipe() = default;
 
 	void update(sf::Time& deltaTime);
 	void render();
 
 	void setVelocity(sf::Vector2f velocity) { m_velocity = velocity; }
-	sf::Vector2f getVelocity() { return m_velocity; }
+	sf::Vector2f& getVelocity() { return m_velocity; }
 
 
-	void setPos(sf::Vector2f pos) { m_upperRect.setPosition(pos); m_lowerRect.setPosition(sf::Vector2f(m_upperRect.getPosition().x, m_upperRect.getSize().y + m_gap)); }
+	void setPos(sf::Vector2f pos);
 	sf::Vector2f getPos() { return m_upperRect.getPosition(); }
 
 	bool checkIfOnLeft();
@@ -32,4 +32,5 @@ private:
 	float m_offset{};
 	bool m_playerPassed{};
 };
+
 

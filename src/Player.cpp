@@ -6,24 +6,25 @@ Player::Player(float radius) : m_rect(sf::Vector2f(radius, radius)) {
 	setPos(sf::Vector2f(200.f, 300.f));
 }
 
-Player::~Player() {};
-
-
+// Returns true if player is out of bounds
 bool Player::checkBounds() {
-	if (m_rect.getPosition().y > game.getWindow().getSize().y) { // Collision with bottom of screen
+	float windowSizeY{ static_cast<float>(game.getWindow().getSize().y) };
+	float playerPosY{ m_rect.getPosition().y };
+
+	if (playerPosY > windowSizeY) { // Collision with bottom of screen
 		return true; 
 	}
 	return false;
 }
 
-
+// Render player
 void Player::render() {
 	game.getWindow().draw(m_rect);
 }
 
-
+// Update player
 void Player::update(sf::Time& deltaTime) {
-	if (checkBounds()) {
+	if (checkBounds()) { // Stop game if player is out of bounds
 		game.stopGame();
 	}
 
